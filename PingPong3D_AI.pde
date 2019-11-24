@@ -282,6 +282,18 @@ if (keys[6]) {
 
 void keyPressed() {
   //print(keyCode);
+  if (key == 'r' || key == 'R') {
+    fire = false;
+    ball.x = W/2;
+    ball.y = H/2;
+    ball.yspeed = H/50;
+    ball.xspeed = 0;
+    aiLpad.y = H/2;
+    aiRpad.y = H/2;
+     aiSpeedL = 0;
+     aiSpeedR = 0;
+  }
+  
   if (key == '!') { 
     level = 1;
   } else if (key == '@') { 
@@ -303,21 +315,32 @@ void keyPressed() {
     keys[3] = true;
   }
 
-  if (key == 'r' || key == 'R') {
-    ball.reset();  
+  if (keyCode == 37) {
+    ball.serve();  
     ball.xspeed = -10;
-  } else if (key =='l' || key == 'L') {
-    ball.reset();  
+
+    if (level == 1) {
+      aiSpeedL = random(6, 8);
+      aiSpeedR = random(1, 3);
+    } else if (level == 2) {
+      aiSpeedL = random(7, 9);
+      aiSpeedR = random(1, 3);
+    } else if (level == 3) {
+      aiSpeedL = random(8, 10);
+      aiSpeedR = random(1, 3);
+    }
+} else if (keyCode == 39) {
+    ball.serve();  
     ball.xspeed = 10;
 
     if (level == 1) {
-      aiSpeedR = random(5, 7);
-      aiSpeedL = random(1, 3);
-    } else if (level == 2) {
       aiSpeedR = random(6, 8);
       aiSpeedL = random(1, 3);
-    } else if (level == 3) {
+    } else if (level == 2) {
       aiSpeedR = random(7, 9);
+      aiSpeedL = random(1, 3);
+    } else if (level == 3) {
+      aiSpeedR = random(8, 10);
       aiSpeedL = random(1, 3);
     }
   } 
