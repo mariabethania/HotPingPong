@@ -53,6 +53,7 @@ int a, b, c, d;
 
 void setup() {
   size(1200, 600, P3D);
+  //frameRate(12);
   for (int i = 0; i<4; i++) {
     keys[i] = false;
   }
