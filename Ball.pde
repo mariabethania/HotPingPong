@@ -39,31 +39,45 @@ y = H/2;
     translate(0,0,21);
     
     if (y >= H-(rad*2.5)) {
-    ping.rewind();
-    ping.play();
-    yspeed *= -1;
-    if (level == 1) {
-    } else if (level == 2) {
-      aiSpeedR *= random(1,1.1);
-      aiSpeedL *= random(1,1.1);
-    } else if (level == 3) {
-      aiSpeedR *= random(1.1,1.3);
-      aiSpeedL *= random(1.1,1.3);
-    }
+      ping.rewind();
+      ping.play();
+      yspeed *= -1;
+      
+      if (level == 1) {
+        //aiSpeedR *= random(1,1.1);
+        //aiSpeedL *= random(1,1.1);
+      } else 
+      if (level == 2) {
+        aiSpeedR *= random(1.1,1.2);
+        aiSpeedL *= random(1.1,1.2);
+      } else if (level == 3) {
+        aiSpeedR *= random(1.3,1.5);
+        aiSpeedL *= random(1.3,1.5);
+      }
+      float count = random(5,10);
+      for (int n = 0; n < count; n++) {
+      cs.addChispas(x,y,255,255,0);
+      }
     } else if (y <= 0+(rad*2.5)) {
-    pong.rewind();
-    pong.play();
-    yspeed *= -1;
-
-    if (level == 1) {
-    } else if (level == 2) {
-      aiSpeedR *= random(1,1.1);
-      aiSpeedL *= random(1,1.1);
-    } else if (level == 3) {
-      aiSpeedR *= random(1.2,1.3);
-      aiSpeedL *= random(1.2,1.3);
+      pong.rewind();
+      pong.play();
+      yspeed *= -1;
+      if (level == 1) {
+        //aiSpeedR *= random(1,1.1);
+        //aiSpeedL *= random(1,1.1);
+      } else 
+      if (level == 2) {
+        aiSpeedR *= random(1.1,1.2);
+        aiSpeedL *= random(1.1,1.2);
+      } else if (level == 3) {
+        aiSpeedR *= random(1.3,1.5);
+        aiSpeedL *= random(1.3,1.5);
+      }
+      float count = random(5,10);
+      for (int n = 0; n < count; n++) {
+      cs.addChispas(x,y,255,255,0);
+      }
     }
-  }
 
     if (x+(rad*2.5) > W) {
      //fire = false;
@@ -133,13 +147,21 @@ y = H/2;
     //yspeed = (4+level) * sin(angle);
     //xspeed *= -(1+acc);
     yspeed = (y - right.y)*0.175;
-    xspeed *= -1.1;
+    xspeed *= -1.09;
     //println(xspeed);
-    aiSpeedL = random(5,7);
+      if (level == 1) {
+        aiSpeedL = 6;
+      } else {
+        aiSpeedL = 7;
+      }
     padR.rewind();
 //ps.addParticle(random(ball.x-8,ball.x+4),random(ball.y-8,ball.y+4),random(ball.z-24,ball.z-16));
 //ps.run1();   && x+(rad*2.5) < W 
     //println(xspeed);
+      float count = random(5,15);
+      for (int n = 0; n < count; n++) {
+      cs.addChispas(x,y,255,255,0);
+      }
     } 
   } 
 
@@ -152,15 +174,23 @@ y = H/2;
     //yspeed = (4+level) * sin(angle);
     //xspeed *= -1.001;
     yspeed = (y - aiRpad.y)*0.175;
-    xspeed *= -1.1;
+    xspeed *= -1.09;
     //println(xspeed);
-      aiSpeedL = random(5,7);
+      if (level == 1) {
+        aiSpeedL = 6;
+      } else {
+        aiSpeedL = 7;
+      }
       aiSpeedR = random(0, 3);
     //println("L - "+aiSpeedL);
     //println("R - "+aiSpeedR);
     padR.rewind();
 //ps1.addParticle1(random(ball.x-8,ball.x+4),random(ball.y-8,ball.y+4),random(ball.z-24,ball.z-16),random(-0.1,0.1),random(-0.1,0.1),random(-0.1,0.1));
 //ps.run();   x+(rad*2.5) < W && 
+      float count = random(5,15);
+      for (int n = 0; n < count; n++) {
+      cs.addChispas(x,y,255,0,0);
+      }
     } 
   } 
 
@@ -174,13 +204,21 @@ y = H/2;
     //yspeed = (4+level) * sin(angle);
     //xspeed *= -(1+acc);
     yspeed = (y - left.y)*0.175;
-    xspeed *= -1.1;
+    xspeed *= -1.09;
     //println(xspeed);
     padL.rewind();
-      aiSpeedR = random(5, 7);
+      if (level == 1) {
+        aiSpeedR = 6;
+      } else {
+        aiSpeedR = 7;
+      }
     //println(xspeed);
 //ps.addParticle(random(ball.x-8,ball.x+4),random(ball.y-8,ball.y+4),random(ball.z-24,ball.z-16));
 //ps.run();   x-(rad*2.5) > 0 && 
+      float count = random(5,15);
+      for (int n = 0; n < count; n++) {
+      cs.addChispas(x,y,255,0,0);
+      }
     } 
   }
 
@@ -192,15 +230,23 @@ y = H/2;
     //float angle = map(diff, 0, aiLpad.h, -radio, radio);
     //yspeed = (4+level) * sin(angle);
     yspeed = (y - aiLpad.y)*0.175;
-    xspeed *= -1.1;
-    println(xspeed);
-      aiSpeedR = random(5, 7);
+    xspeed *= -1.09;
+    //println(xspeed);
+      if (level == 1) {
+        aiSpeedR = 6;
+      } else {
+        aiSpeedR = 7;
+      }
       aiSpeedL = random(0, 3);
     //println("L - "+aiSpeedL);
     //println("R - "+aiSpeedR);
     padL.rewind();
 //ps.addParticle(random(ball.x-8,ball.x+4),random(ball.y-8,ball.y+4),random(aiLpad.z-24,aiLpad.z-16));
 //ps.run();    x-(rad*2.5) > 0 &&
+      float count = random(5,15);
+      for (int n = 0; n < count; n++) {
+      cs.addChispas(x,y,255,0,0);
+      }
     } 
 
 }
@@ -213,6 +259,8 @@ y = H/2;
     }
   fire = true;
   acc = 0.2020;
+  //startDing.pause();
+  startDing.rewind();
   startDing.play();
   yspeed = random(-2,2);
   leftBounce.pause();
@@ -231,8 +279,12 @@ y = H/2;
       }else {
       aiLscore++;
       }
-      xspeed = 10;
-      aiSpeedR = random(6, 9);
+      xspeed = 12;
+      if (level == 1) {
+        aiSpeedR = 6;
+      } else {
+        aiSpeedR = 7;
+      }
       aiSpeedL = random(0, 3);
   } else if (x < 0) {
       if (aiRbool) {
@@ -240,10 +292,14 @@ y = H/2;
       }else {
       aiRscore++;
       }
-      xspeed = -10;
+      xspeed = -12;
       //aiSpeedL = random(7,9);
       //aiSpeedR = random(1);
-      aiSpeedL = random(6, 9);
+      if (level == 1) {
+        aiSpeedL = 6;
+      } else {
+        aiSpeedL = 7;
+      }
       aiSpeedR = random(0, 3);
     }
   x = W/2;   

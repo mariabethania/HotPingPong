@@ -21,7 +21,7 @@ class Particle {
     velocity.add(acceleration);
     location.add(velocity);
 
-if ((ball.xspeed > 11 || ball.xspeed < -11) || (ball.xspeed < 3 && ball.xspeed > -3)) {    
+if ((ball.xspeed > 13 || ball.xspeed < -13) || (ball.xspeed < 3 && ball.xspeed > -3)) {    
     //location.x = random(ball.x-8,ball.x+4);
     //location.y = random(ball.y-8,ball.y+4);
     //location.z = random(ball.z-24,ball.z-16);

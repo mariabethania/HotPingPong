@@ -2,7 +2,7 @@ class Paddle {
   float x;
   float y;
   float w = W/100;
-  float h = 500/8;
+  float h = H/7.5;
   float z = w;
   
   Paddle(boolean left, float W, float H) {
