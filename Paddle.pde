@@ -1,9 +1,10 @@
 class Paddle {
   float x;
   float y;
-  float w = W/100;
+  //float yMouse;
+  float w = W/90;
   float h = H/7.5;
-  float z = w;
+  float z = w*1.5;
   
   Paddle(boolean left, float W, float H) {
     if (left) {
@@ -12,6 +13,7 @@ class Paddle {
       x = W - w*2;
     }
     y = H/2;//-(h/2)-ball.rad;
+    //yMouse = mouseY;
     }
   
   //void update() {
@@ -21,18 +23,17 @@ class Paddle {
   void show(){
    pushMatrix();
    translate(x, y,z/2);
+   strokeWeight(1);
+   stroke(25);
    box(w,h,z);
    popMatrix();
   }
   
   void move(float steps) {
-    //if (mouseRMove) {
-    //  y = steps;
-    //  y = constrain(y,0+h/2,H-h/2);
-    //} else 
-    //{
-      y += steps;
+      //{
+      y = steps;
       y = constrain(y,0+h/2,H-h/2);
+      
    // }
   }
   

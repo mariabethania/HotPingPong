@@ -4,7 +4,7 @@ class Chispas {
    PVector acc;
    float red,green,blue;
    float lifespan = 255;
-   float rad = width*0.001;
+   float rad = width*0.002;
    //float rota;
    boolean hitBool;
  
@@ -12,7 +12,7 @@ class Chispas {
       //for (int i =0; i < 1; i++) {
          pos = new PVector(x,y,0);
          vel = new PVector(random(-5,5),random(-5,5),random(10));
-         acc = new PVector(0.1,0.1,0.1);
+         acc = new PVector(0.01,0.01,0.01);
          red = red_;
          green = green_;
          blue = blue_;
@@ -23,7 +23,7 @@ class Chispas {
    void update(){
       vel.add(acc);
       pos.add(vel);
-      lifespan -= 20;
+      lifespan -= 10;
       //rota -= 0.1;
    }
   
